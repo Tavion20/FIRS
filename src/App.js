@@ -18,10 +18,13 @@ function App() {
   const [show, setShow] = useState(false);
   const [login, setLogin] = useState(true);
   const [signOut, setSignOut] = useState(false);
+  const [finalRes, setFinalRes] = useState("");
+  let final_res="";
   const handleImageClick = () => {
     inputRef.current.click();
   };
   const handleImageChange = (event) => {
+    setShow(false);
     const file = event.target.files[0];
     setimg(file);
 
@@ -33,7 +36,34 @@ function App() {
       body: formData
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data['result']);
+      
+      for (let w=2;data['result'][w]!="'";w++){
+        if(w==2){
+          final_res+=data['result'][w];
+          final_res=final_res.toUpperCase();
+        }
+        else{
+          if(data['result'][w]=='_')
+          {
+            final_res+=' ';
+          }
+          else if(data['result'][w-1]=='_'){
+            let up= data['result'][w];
+            up=up.toUpperCase();
+            final_res+=up;
+          }
+          else{
+            final_res+=data['result'][w];
+          }
+        }
+      }
+      
+      console.log(final_res);
+      setFinalRes(final_res);
+
+    })
     .catch(err => console.log(err))
   };
 
@@ -307,7 +337,7 @@ function App() {
             </div>
             <div>
               {Records.map((records) => {
-                if (records.Food == "Broccoli") {
+                if (records.Food == finalRes) {
                   console.log(records.Food);
                   console.log(records.Serving);
                   console.log(records.Calories);
