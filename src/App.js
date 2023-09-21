@@ -36,9 +36,7 @@ function App() {
       body: formData
     })
     .then(res => res.json())
-    .then(data => {
-      console.log(data['result']);
-      
+    .then(data => {      
       for (let w=2;data['result'][w]!="'";w++){
         if(w==2){
           final_res+=data['result'][w];
