@@ -23,7 +23,7 @@ app.post('/runmodel', (req, res) => {
   })
 });
 
-const port = "https://firs-backend.onrender.com/";
+const port = "/";
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
