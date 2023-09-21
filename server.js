@@ -27,7 +27,7 @@ app.post('/runmodel', (req, res) => {
   })
 });
 
-const port = 4000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
