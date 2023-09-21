@@ -31,7 +31,7 @@ function App() {
     const formData = new FormData();
     formData.append("myFile", file);
 
-    fetch("http://localhost:2000/runmodel", {
+    fetch("https://firs-vbek.onrender.com/api/runmodel", {
       method: "POST",
       body: formData
     })
