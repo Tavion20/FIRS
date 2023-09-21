@@ -23,7 +23,7 @@ app.post('/runmodel', (req, res) => {
   })
 });
 
-const port = "/";
+const port = "/api/";
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
