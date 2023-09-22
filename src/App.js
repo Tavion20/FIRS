@@ -31,14 +31,12 @@ function App() {
     const formData = new FormData();
     formData.append("myFile", file);
 
-    fetch("http://localhost:2000/runmodel", {
+    fetch("https://firs-vbek.onrender.com/runmodel", {
       method: "POST",
       body: formData
     })
     .then(res => res.json())
-    .then(data => {
-      console.log(data['result']);
-      
+    .then(data => {      
       for (let w=2;data['result'][w]!="'";w++){
         if(w==2){
           final_res+=data['result'][w];

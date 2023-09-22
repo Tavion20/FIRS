@@ -10,6 +10,10 @@ app.use(cors());
 app.use(express.json());
 app.use(formidable());
 
+app.get("/", (req, res) => {
+  res.status(201).json({message: "Connected to Backend!"});
+});
+
 app.post('/runmodel', (req, res) => {
   const {name, path} = req.files.myFile
 
@@ -23,7 +27,7 @@ app.post('/runmodel', (req, res) => {
   })
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
