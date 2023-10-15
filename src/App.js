@@ -16,7 +16,7 @@ function App() {
   const inputRef = useRef(null);
   const [image, setimg] = useState("");
   const [show, setShow] = useState(false);
-  const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(false);
   const [signOut, setSignOut] = useState(false);
   const [finalRes, setFinalRes] = useState("");
   let final_res="";
@@ -31,7 +31,7 @@ function App() {
     const formData = new FormData();
     formData.append("myFile", file);
 
-    fetch("https://firs-vbek.onrender.com/runmodel", {
+    fetch("http://localhost:10000/runmodel", {
       method: "POST",
       body: formData
     })
@@ -168,7 +168,7 @@ function App() {
                   Password
                 </div>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="Please enter Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -238,7 +238,7 @@ function App() {
                   Password
                 </div>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="Please enter Password"
                   value={regpassword}
                   onChange={(e) => setRegPassword(e.target.value)}
