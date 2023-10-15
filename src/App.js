@@ -7,7 +7,6 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-// Fixed Version
 function App() {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
